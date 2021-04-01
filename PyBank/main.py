@@ -15,7 +15,7 @@ with open(csvpath) as budget_data:
 	first_month = next(csviterator)
 	month_counter = 1
 	net_profit = int(first_month[1])
-	greatest_month_profit = ["", 0]
+	great_month_profit = ["", 0]
 	least_month_profit = ["", 0]
 
 	#holds previous months information to accurately calculate change between months
@@ -23,15 +23,14 @@ with open(csvpath) as budget_data:
 
 	#loop through the dataset
 	for row in csviterator:
-		#print(row)
 		#cumulative variables		
 		month_counter += 1
 		net_profit += int(row[1])
 
 		#check change vs greatest and least, update greatest and least if condition is met
-		if( (int(row[1]) - int(change_holder[1])) > int(greatest_month_profit[1])):
-			greatest_month_profit[0] = row[0]
-			greatest_month_profit[1] = (int(row[1]) - int(change_holder[1]))
+		if( (int(row[1]) - int(change_holder[1])) > int(great_month_profit[1])):
+			great_month_profit[0] = row[0]
+			great_month_profit[1] = (int(row[1]) - int(change_holder[1]))
 		elif((int(row[1]) - int(change_holder[1])) < int(least_month_profit[1])):
 			least_month_profit[0] = row[0]
 			least_month_profit[1] = (int(row[1]) - int(change_holder[1]))
@@ -45,6 +44,10 @@ with open(csvpath) as budget_data:
 	average_change = (float(row[1]) - float(first_month[1])) / (month_counter - 1)
 	average_change = round(average_change, 2)
 
-	print(f"Month counter: {month_counter}\nNet profit: {net_profit}\n\
-Average change: {average_change}\nGreatest: {greatest_month_profit}\n\
-Least: {least_month_profit}")
+	print(f"Finacial Analysis")
+	print(f"----------------------------")
+	print(f"Total Months: {month_counter}")
+	print(f"Total: ${net_profit}")
+	print(f"Average  Change: ${average_change}")
+	print(f"Greatest Increase in Profits: {great_month_profit[0]} (${great_month_profit[1]})")
+	print(f"Greatest Decrease in Profits: {least_month_profit[0]} (${least_month_profit[1]})")
