@@ -12,8 +12,8 @@ csvpath = os.path.join("Resources", "election_data.csv")
 with open(csvpath) as election_data:
 	csviterator = csv.reader(election_data, delimiter = ',')
 
-	#skip header before loop
-	next(csviterator)
+	#rubric says to save header, I don't use it anywhere else though
+	throwaway_variable = next(csviterator)
 
 	#loop through the dataset 
 	for row in csviterator:

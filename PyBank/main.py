@@ -15,9 +15,9 @@ average_change = 0
 with open(csvpath) as budget_data:
 	csviterator = csv.reader(budget_data, delimiter = ",")
 	
-	#skip header before loop
-	next(csviterator)
-
+	#rubric says to save header, I don't use it anywhere else though
+	throwaway_variable = next(csviterator)
+	
 	#initialize variables using the first month's values 
 	first_month = next(csviterator)
 	net_profit = int(first_month[1])
