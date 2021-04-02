@@ -48,5 +48,10 @@ output_list.append("-------------------------")
 output_list.append(f"Winner: {winner}")
 output_list.append("-------------------------")
 
-for row in output_list:
-	print(row)
+#prepare for output to text file
+output_path = os.path.join("analysis", "election_results.txt")
+
+with open(output_path, 'w', newline='') as output_file:
+	for text in output_list:
+		output_file.write(text + "\n")
+		print(text)

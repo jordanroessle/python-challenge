@@ -66,6 +66,6 @@ output_path = os.path.join("analysis", "results.txt")
 with open(output_path, 'w', newline='') as output_file:
 	for text in finacial_analysis:
 		output_file.write(text + "\n")
-		print(f"{text}")
+		print(text)
 
 
