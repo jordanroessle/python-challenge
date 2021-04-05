@@ -48,7 +48,7 @@ with open(csvpath) as budget_data:
 	average_change = (float(row[1]) - float(first_month[1])) / (month_counter - 1)
 	average_change = round(average_change, 2)
 
-#store finacial analysis in a list to print and output into a file late
+#store finacial analysis in a list to print and output into a file later
 finacial_analysis = [] 
 finacial_analysis.append(f"Finacial Analysis")
 finacial_analysis.append(f"----------------------------")
@@ -67,5 +67,3 @@ with open(output_path, 'w', newline='') as output_file:
 	for text in finacial_analysis:
 		output_file.write(text + "\n")
 		print(text)
-
-
