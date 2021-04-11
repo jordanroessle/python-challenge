@@ -1,6 +1,5 @@
 import os 
 
-
 filepath = os.path.join("raw_data", "givenPassage.txt")
 
 with open(filepath) as paragraph:
@@ -23,9 +22,11 @@ with open(filepath) as paragraph:
 		
 		#calculate average word length
 		average_word_length = sum(word_lengths) / len(word_lengths)
+		average_word_length = round(average_word_length, 1)
 
 		#calculate average sentence length
-		average_sentence_length = word_count / sentence_count
+		average_sentence_length = float(word_count) / sentence_count
+		average_sentence_length = round(average_sentence_length, 1)
 
 		print("Paragraph Analysis")
 		print("-----------------")
